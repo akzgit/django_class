@@ -19,6 +19,7 @@ from django.urls import path, include
 from AppTwo import views
 from AppTwo.views import help
 from AppTwo.views import UploadView
+from AppTwo.views import student_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,4 +27,5 @@ urlpatterns = [
     path('AppTwo/empdetails.html',views.empdetails),
     path('help.html/', help, name='help'),
     path('upload/',UploadView.as_view()),
+    path('AppTwo/form.html',views.student_views),
 ]
