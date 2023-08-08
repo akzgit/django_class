@@ -27,5 +27,5 @@ urlpatterns = [
     path('AppTwo/empdetails.html',views.empdetails),
     path('help.html/', help, name='help'),
     path('upload/',UploadView.as_view()),
-    path('form.html/',views.student_views),
+    path('formpage/',views.student_views),
 ]

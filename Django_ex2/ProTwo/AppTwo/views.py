@@ -26,5 +26,5 @@ class UploadView(View):
 
 def student_views(request):
     studobj=StudentForm()
-    return render(request,"AppTwo/form.html",{'formdict':studobj})
+    return render(request,"AppTwo/form.html",{'form':studobj})
     

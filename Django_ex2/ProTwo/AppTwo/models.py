@@ -1,5 +1,5 @@
 from django.db import models
-from django import forms
+# from django import forms
 
 class Employee(models.Model):
     emp_name=models.CharField(max_length=264,unique=True)  #CharField to store characters(text)
