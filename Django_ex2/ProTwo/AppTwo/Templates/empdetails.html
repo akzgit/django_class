@@ -1,0 +1,30 @@
+<!Doctype html>
+<html>
+    <head>
+        <title>Employee details</title>
+    </head>
+    <body>
+        <div class="classone">
+            {% if access_webpage%}
+            <table>
+                <thead>
+                    <th>Employee_Name</th>
+                    <th>Employee_Designation</th>
+                    <th>Date_Accessed</th>
+                </thead>
+
+                {% for accr in access_webpage %}
+                <tr>
+                    <td>{{ accr.name }}</td>
+                    <td>{{ accr.emp_desg }}</td>
+                    <td>{{ accr.date }}</td>
+                </tr>
+                {% endfor %} 
+            </table>
+            {% else %}
+            <p>No Access records found!</p>
+            {% endif %}
+        </div>
+    </body>
+    </html>
+
