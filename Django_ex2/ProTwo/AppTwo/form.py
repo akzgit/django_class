@@ -1,5 +1,5 @@
 from django import forms
-from AppTwo.models import Student # or-0> #from first_app.models import Student
+from AppTwo.models import Student # or-->from first_app.models import Student
 
 
 class  StudentForm(forms.ModelForm):

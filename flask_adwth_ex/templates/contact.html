@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback Form</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Custom CSS to adjust the width of the submit button */
+    .narrow-button {
+      width: 120px; /* Adjust the width as needed */
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+      function updateComments() {
+          $.ajax({
+              url: '/get_comments',  // New route to fetch comments
+              method: 'GET',
+              success: function(data) {
+                  $('#commentsList').html(data);
+              }
+          });
+      }
+
+      // Call the updateComments function initially and then every 5 seconds
+      $(document).ready(function() {
+          updateComments();
+          setInterval(updateComments, 5000);  // Refresh comments every 5 seconds
+      });
+  </script>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">Home</a>
+    <a class="navbar-brand" href="/about">About Us</a>
+    <a class="navbar-brand" href="/comments">Contact Us</a>
+  </nav>
+
+  <div class="container mt-5">
+    <div class="jumbotron">
+      <h2 class="text-center">Comments</h2>
+      <form action="http://localhost:5000/comments" method="post" class="feedback-form">
+        <div class="form-group">
+          <label for="feedback">Comment here:</label>
+          <textarea class="form-control" id="feedback" name="feedback" rows="2" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block narrow-button">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+    <div class="jumbotron">
+        <!-- Form and table content here -->
+
+        <hr>
+
+        <h3>Comments:</h3>
+        <div id="commentsList">
+            <!-- Comments will be displayed here -->
+        </div>
+    </div>
+</div>
+</body>
+</html>
