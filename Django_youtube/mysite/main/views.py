@@ -7,3 +7,6 @@ def index(response):
 
 def v1(response):
     return HttpResponse("<h1>view 1!</h1>")
+
+def hello(request):
+    return render(request,"index.html",{})
