@@ -1,0 +1,15 @@
+<!Doctype html>
+<html>
+    <head><title>index page</title></head>
+    <body>
+        <h1>We are on the Index page</h1>
+        <h2>Employee details are as follows:</h2>
+        <form action="" method="POST">
+             <div class="container">
+                  {% csrf_token %}
+                  {{ form.as_p }}
+                  <button type="submit">Submit</button>
+             </div>
+        </form>
+    </body>
+</html>
