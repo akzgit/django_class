@@ -28,4 +28,17 @@ def show(request):
 
 def edit(request,id):
     emp2=EmpDetails.objects.get(id=id)
-    return render(request,'crud_app/edit.html',{'emp2':emp2})            
+    return render(request,'crud_app/edit.html',{'emp2':emp2}) 
+
+def update(request,id):
+    emp2=EmpDetails.objects.get(id=id)      
+    empobj=EmpDetails_Form(request.POST,instance=emp2)
+    if empobj.is_valid():
+        empobj.save()
+        return redirect("/show")
+    return render(request,'crud_app/edit.html',{'emp2':empobj})
+
+def destroy(request,id):
+    emp2=EmpDetails.objects.get(id=id)
+    emp2.delete()
+    return redirect("/show")     

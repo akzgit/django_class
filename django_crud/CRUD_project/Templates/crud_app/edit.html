@@ -5,9 +5,21 @@
         <h3>Update Details</h3>
         <br>
         <form action="/update/{{ emp2.id }}" method="POST">
+            {% csrf_token %}
              <div class="container">
-                  {% csrf_token %}
-                  {{ form.as_p }}
+                  <label>Employee ID:</label>
+                  <input type="text" name="empid" id="id_eid" required maxlength="20" value="{{ e.empid }}"/>
+                  <br><br>
+                  <label>Employee Name:</label>
+                  <input type="text" name="empname" id="id_ename" required maxlength="50" value="{{ e.empname }}"/>
+                  <br><br>
+                  <label>Employee Email:</label>
+                  <input type="email" name="empemail" id="id_eemail" required value="{{ e.empemail }}"/>
+                  <br><br>
+                  <label>Employee Contact:</label>
+                  <input type="text" name="empcontact" id="id_econtact" required value="{{ e.empcontact }}"/>
+                  <br><br>
+                  
                   <button type="submit">Update</button>
              </div>
         </form>

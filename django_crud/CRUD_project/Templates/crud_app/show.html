@@ -21,14 +21,14 @@
             <td>{{ e.empname }}</td>
             <td>{{ e.empemail }}</td>
             <td>{{ e.empcontact }}</td>
-            <td><a href="/edit /{{ e.empid }}">Edit</a>
-                <a href="/delete/ {{ e.empid }}">Delete</a>
+            <td><a href="/edit/{{ e.id }}">Edit</a>
+                <a href="/delete/{{ e.id }}">Delete</a>
             </td>
         </tr>
         {%endfor%}
         </tbody>
        </table>
        <br><br><hr>
-      <center> <a href="http://127.0.0.1:8000/" class="btn btn-primary">Add New Record</a></center>
+      <center> <a href="index" class="btn btn-primary">Add New Record</a></center>
     </body>
 </html>
