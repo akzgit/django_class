@@ -1,0 +1,15 @@
+<!Doctype html>
+<html>
+    <head><title>Edit</title></head>
+    <body>
+        <h3>Update Details</h3>
+        <br>
+        <form action="/update/{{ emp2.id }}" method="POST">
+             <div class="container">
+                  {% csrf_token %}
+                  {{ form.as_p }}
+                  <button type="submit">Update</button>
+             </div>
+        </form>
+    </body>
+</html>
