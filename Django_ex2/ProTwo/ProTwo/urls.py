@@ -21,6 +21,7 @@ from AppTwo.views import help
 from AppTwo.views import UploadView
 from AppTwo.views import student_views
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('apptwo/', include('AppTwo.urls')),
@@ -28,4 +29,6 @@ urlpatterns = [
     path('help.html/', help, name='help'),
     path('upload/',UploadView.as_view()),
     path('formpage/',views.student_views),
+    path('', include('emailapp.urls')),
+    
 ]
