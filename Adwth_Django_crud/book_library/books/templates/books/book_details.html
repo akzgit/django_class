@@ -1,0 +1,13 @@
+<html>
+    <head><title>form</title></head>
+    <body>
+        <h1>{{ book.title }} Details</h1>
+        <p><strong>Title:</strong>{{ book.title }}</p>
+        <p><strong>Author:</strong>{{ book.author }}</p>
+        <p><strong>Publication Date:</strong>{{ book.publication_date }}</p>
+        <a href="{%url 'book_update' book.pk%}">Edit</a>
+        <a href="{%url 'book_delete' book.pk%}">Delete</a>
+        <a href="{%url 'book_list'%}">Back to list</a>
+    
+    </body>
+    </html>
