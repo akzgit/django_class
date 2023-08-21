@@ -1,16 +1,16 @@
 from django.shortcuts import render,redirect
 from django.core.mail import send_mail,BadHeaderError
 from django.http import HttpRequest,HttpResponse,HttpResponseRedirect
-from . forms import Contactus
+from . forms import Contactus_forms
 from django.conf import settings
 # Create your views here.
 
 def contactview(request):
     if request.method =="GET":
-        formobj=Contactus()
+        formobj=Contactus_forms()
         
     else:
-        formobj=Contactus(request.POST)
+        formobj=Contactus_forms(request.POST)
         if formobj.is_valid():
             subject=formobj.cleaned_data["subject"]
             from_email=formobj.cleaned_data["from_email"]
@@ -22,6 +22,7 @@ def contactview(request):
                 send_mail(subject,message, settings.EMAIL_HOST_USER,[to_email])   # here email is given in the form
             except BadHeaderError:
                 return HttpResponse("Invalid header found")
+            formobj.save()
             return redirect("success")
     return render(request,"emailapp/email.html",{"form":formobj})  
 
