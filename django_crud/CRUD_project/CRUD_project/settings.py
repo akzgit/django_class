@@ -35,7 +35,8 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
-    'django.contrib.sessions',
+    'django.contrib.sessions',  #storing session data in the database
+    'django_session_timeout', #newly added
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'CRUD_app'
@@ -43,13 +44,19 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware', #creates a new session id which is linked with your application/data
+    'django_session_timeout.middleware.SessionTimeoutMiddleware', # newly created
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+SESSION_EXPIRE_SECONDS=30 #neeed to install 'pip install djando-session-timeout
+SESSION_TIMEOUT_REDIRECT='redirect_url_/index'
+#SESSION_EXPIRE_AT_BROWSER_CLOSE=True
+#SESSION_EXPIRE_AFTER_LAST_ACTIVITY=True
 
 ROOT_URLCONF = 'CRUD_project.urls'
 

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from AppTwo.models import Employee,AccessRecord,WebPage
 from salary import UploadForm
@@ -27,4 +27,32 @@ class UploadView(View):
 def student_views(request):
     studobj=StudentForm()
     return render(request,"AppTwo/form.html",{'form':studobj})
+ 
+ #checking cookies on browser   
+def cookie_session(request):
+    request.session.set_test_cookie()
+    return HttpResponse("checking cookies on browser")
     
+def cookie_delete(request):
+    if request.session.test_cookie_worked(): #if it returns true
+        request.session.delete_test_cookie() #it will delete the cookie
+        response=HttpResponse("cookie deleted successfully")
+    else:
+        response=HttpResponse("Your browser doesn't accept cookies")  
+    return response 
+
+
+#sessions
+def create_session(request):
+    request.session['name']='usename'
+    request.session['password']='password123'
+    return HttpResponse("Session is set")
+
+def access_session(request):
+    if request.session.get('name'):
+        response="Name :{0}".format(request.session.get('name'))
+    if request.session.get('password'):
+        response+="Password :{0}".format(request.session.get('password'))
+        return response
+    else:
+        return redirect('createsession/')                    

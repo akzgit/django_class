@@ -26,4 +26,9 @@ urlpatterns = [
     path('update/<int:id>',views.update),
     path('delete/<int:id>',views.destroy),
     
+    path('testcookie/',views.cookie_session),
+    path('deletecookie/',views.cookie_delete),
+    path('createsession/',views.create_session),
+    path('accesssession/',views.access_session),
+    
 ]

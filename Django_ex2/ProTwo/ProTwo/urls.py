@@ -30,5 +30,10 @@ urlpatterns = [
     path('upload/',UploadView.as_view()),
     path('formpage/',views.student_views),
     path('', include('emailapp.urls')),
+    path('testcookie/',views.cookie_session),
+    path('deletecookie/',views.cookie_delete),
+    path('createsession/',views.create_session),
+    path('accesssession/',views.access_session),
+    
     
 ]
