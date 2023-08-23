@@ -49,9 +49,10 @@ def create_session(request):
     return HttpResponse("Session is set")
 
 def access_session(request):
-    if request.session.get('name'):
+    response=""
+    if request.session.get('name','Akash'):
         response="Name :{0}".format(request.session.get('name'))
-    if request.session.get('password'):
+    if request.session.get('password','Akash123'):
         response+="Password :{0}".format(request.session.get('password'))
         return response
     else:

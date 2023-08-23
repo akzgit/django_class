@@ -53,8 +53,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-SESSION_EXPIRE_SECONDS=30 #neeed to install 'pip install djando-session-timeout
-SESSION_TIMEOUT_REDIRECT='redirect_url_/index'
+SESSION_EXPIRE_SECONDS=30  #neeed to install 'pip install djando-session-timeout
+SESSION_TIMEOUT_REDIRECT='/index'
 #SESSION_EXPIRE_AT_BROWSER_CLOSE=True
 #SESSION_EXPIRE_AFTER_LAST_ACTIVITY=True
 

@@ -30,5 +30,9 @@ urlpatterns = [
     path('deletecookie/',views.cookie_delete),
     path('createsession/',views.create_session),
     path('accesssession/',views.access_session),
+    path('deletesession/',views.delete_session),
+    path('accesssession/index',views.index),
+    
+    
     
 ]
